@@ -1,7 +1,7 @@
 
 ## Golang之家
 
-> 技术栈：dotweb + mgo + vue
+> 技术栈：echo + mgo + vue
 
 > 预览地址： [http://59.110.212.239/gohome](http://59.110.212.239/gohome)
 
