@@ -1,8 +1,12 @@
-hash: 29e707388458757c451051c64d34636081450cc4f4c35768d69482186c91bb2b
-updated: 2017-12-01T18:20:09.683248649+08:00
+hash: e76ffc654418d16869faecf8a2ef6cdad1b646f26df5540087e9092db548ddd0
+updated: 2017-12-12T17:45:37.555446678+08:00
 imports:
-- name: github.com/devfeel/dotweb
-  version: 650e68d4987795868b485731ec5b9ca5ab0e5e02
 - name: github.com/joho/godotenv
   version: a79fa1e548e2c689c241d10173efd51e5d689d5b
+- name: github.com/labstack/echo
+  version: 935a60782cbbc55110e7bd4b33120e4567cbee43
+- name: golang.org/x/crypto
+  version: 27b9897dfcda296fc086003b6e46fca80a29512d
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
 testImports: []
