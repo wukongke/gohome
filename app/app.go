@@ -3,29 +3,36 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
 
-	"github.com/devfeel/dotweb"
-	"github.com/devfeel/dotweb/logger"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 
+	"work-codes/gohome/app/common"
 	"work-codes/gohome/app/routes"
 )
 
 func StartServer() error {
-	app := dotweb.New()
-	logger.SetEnabledConsole(true)
-	routes.InitRoute(app.HttpServer)
+	app := echo.New()
+	app.Use(middleware.Logger())
+	app.Use(middleware.Recover())
 
-	port, err := strconv.Atoi(os.Getenv("PORT"))
-	if err != nil {
-		port = 8080
+	routes.InitRoute(app)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "1323"
 	}
-	fmt.Println("port: ", port)
-	err = app.StartServer(port)
+	if os.Getenv("APP_MODE") == "dev" || os.Getenv("APP_MODE") == "test" {
+		app.Debug = true
+	}
+	err := app.Start(":" + port)
+	app.Logger.Fatal(err)
 	return err
 }
 
 func main() {
+	defer common.MgoClose()
+
 	err := StartServer()
 	if err != nil {
 		fmt.Println(err)
