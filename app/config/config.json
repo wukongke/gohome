@@ -1,7 +1,7 @@
 {
 	"database": {
     "Url": "mongodb://127.0.0.1:27017",
-		"DbName"     : "gohome",
+		"DbName"     : "dev-gohome",
 		"MaxIdleConns" : 5,          /*空闲时最大的连接数*/
 		"MaxOpenConns" : 10          /*最大的连接数*/
 	},
